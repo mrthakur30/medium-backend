@@ -81,7 +81,7 @@ router.get('/get/:id', async (req, res) => {
 });
 
 // Get all posts
-router.get('/blog', async (req, res) => {
+router.get('/bulk', async (req, res) => {
     try {
         const posts = await Post.find({});
         res.status(200).json(posts);
