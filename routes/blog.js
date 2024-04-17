@@ -5,14 +5,14 @@ import { Post } from '../utils/db.js';
 
 const router = Router();
 
-// Define the schema for post data
+
 const postType = z.object({
     title: z.string(),
     content: z.string(),
     author: z.string()
 });
 
-// Create a new post
+
 router.post('/save', authMiddleware, async (req, res) => {
     try {
         const { title, content } = req.body;
@@ -36,7 +36,6 @@ router.post('/save', authMiddleware, async (req, res) => {
 });
 
 
-// Update an existing post
 router.put('/update/:id', authMiddleware, async (req, res) => {
     try {
         const { title, content } = req.body;
@@ -65,7 +64,7 @@ router.put('/update/:id', authMiddleware, async (req, res) => {
     }
 });
 
-// Get a specific post by ID
+
 router.get('/get/:id', async (req, res) => {
     try {
         const postId = req.params.id;
@@ -80,7 +79,7 @@ router.get('/get/:id', async (req, res) => {
     }
 });
 
-// Get all posts
+
 router.get('/bulk', async (req, res) => {
     try {
         const posts = await Post.find({});
